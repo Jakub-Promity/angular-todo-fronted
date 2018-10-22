@@ -19,4 +19,7 @@ export class TodoListComponent implements OnInit {
     });
   }
 
+  handleCreatedTodo(todo: TodoItem) {
+    this.todos.push(todo);
+  }
 }
