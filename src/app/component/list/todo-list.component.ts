@@ -29,13 +29,6 @@ export class TodoListComponent implements OnInit {
     }).catch(error=>this.todoListService.showSnack(error.status + " " + error.message));
   }
 
-  handleDelete(todo:TodoItem){
-    this.todoListService.remove(todo).then(()=>{
-      this.todoListService.showSnack('Note deleted !');
-      this.todos.splice(this.todos.indexOf(todo),1);
-    }).catch(error=>this.todoListService.showSnack(error.status + " " + error.message));
-  }
-
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
     this.setRank();

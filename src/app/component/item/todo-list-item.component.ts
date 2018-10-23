@@ -25,16 +25,4 @@ export class TodoListItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleDone(){
-    this.todo.done = !this.todo.done;
-    this.todoService.update(this.todo).then(()=>{
-      this.todoService.showSnack('Note updated !')
-    }).catch(error=>this.todoService.showSnack(error.status + " " + error.message));
-  }
-
-  delete(){
-    this.deleteEvent.emit(this.todo);
-  }
-
-
 }

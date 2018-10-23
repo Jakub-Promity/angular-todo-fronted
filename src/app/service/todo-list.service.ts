@@ -29,10 +29,6 @@ export class TodoListService {
     });
   }
 
-  remove(todo: TodoItem): Promise<any> {
-    return this.http.delete(this.TODO_URL + '/' + todo.id).toPromise();
-  }
-
   update(todo: TodoItem): Promise<void | TodoItem> {
     return this.http.put(this.TODO_URL + '/' + todo.id, todo).toPromise().then(response => {
       return response as TodoItem;

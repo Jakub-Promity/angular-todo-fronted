@@ -10,8 +10,6 @@ export class TodoListPageComponent implements OnInit {
 
   environment = environment;
 
-  httpError:any;
-
   constructor() { }
 
   ngOnInit() {

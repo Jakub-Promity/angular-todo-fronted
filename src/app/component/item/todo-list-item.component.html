@@ -2,18 +2,14 @@
     <div [class]="todo.done ? 'card done' : 'card'">
       <div class="card-body">
         <div class="row">
-          <div class="col-1" (click)="toggleDone()">
+          <div class="col-1">
             <i class="far fa-check-square" *ngIf="todo.done"></i>
             <i class="far fa-square" *ngIf="!todo.done"></i>
           </div>
-          <div class="col-10" (click)="toggleDone()">
+          <div class="col-11">
             <div class="text-panel">
               {{todo.content}}
-              <span *ngIf="!environment.production" style="font-size: 1rem;color: lightgray">id : {{todo.id}} rank : {{todo.rank}} isDone : {{todo.done}}</span>
             </div>
-          </div>
-          <div class="col-1 delete-button" (click)="delete()">
-            <i class="fas fa-times"></i>
           </div>
         </div>
       </div>
