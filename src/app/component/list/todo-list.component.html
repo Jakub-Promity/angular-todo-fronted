@@ -1,0 +1,13 @@
+<app-todo-item-creator (todoCreated)="handleCreatedTodo($event)"></app-todo-item-creator>
+
+<div cdkDropList class="todo-list" (cdkDropListDropped)="drop($event)">
+  <div *ngFor="let todo of todos" cdkDrag cdkDragLockAxis="y">
+    <app-todo-list-item [todo]="todo" (deleteEvent)="handleDelete($event)"></app-todo-list-item>
+  </div>
+
+  <div *ngIf="todos.length == 0" class="no-notes-warning">
+      <span>
+          Write some notes !
+      </span>
+  </div>
+</div>

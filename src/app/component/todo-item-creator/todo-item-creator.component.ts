@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {TodoItem} from '../todo-list-item/todo-item';
+import {TodoItem} from '../item/todo-item';
 
 @Component({
   selector: 'app-todo-item-creator',
@@ -7,6 +7,8 @@ import {TodoItem} from '../todo-list-item/todo-item';
   styleUrls: ['./todo-item-creator.component.scss']
 })
 export class TodoItemCreatorComponent implements OnInit {
+
+  public value;
 
   @Output()
   public todoCreated:EventEmitter<TodoItem>;
@@ -19,6 +21,13 @@ export class TodoItemCreatorComponent implements OnInit {
   }
 
   createTodo() {
-    this.todoCreated.emit(new TodoItem('new'));
+    this.todoCreated.emit(new TodoItem(this.value));
+  }
+
+  checkSubmit(event:any){
+    if(event.key == 'Enter'){
+      this.createTodo();
+      this.value = '';
+    }
   }
 }
