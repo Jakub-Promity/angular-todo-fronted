@@ -7,7 +7,7 @@ import { TodoListItemComponent } from './component/item/todo-list-item.component
 import {TodoListService} from './service/todo-list.service';
 import { TodoItemCreatorComponent } from './component/todo-item-creator/todo-item-creator.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import {MatIconModule, MatInputModule} from '@angular/material';
+import {MatIconModule, MatInputModule, MatSnackBarModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
@@ -26,7 +26,8 @@ import {HttpClientModule} from '@angular/common/http';
     MatInputModule,
     MatIconModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
 
   ],
   providers: [

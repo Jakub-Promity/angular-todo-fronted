@@ -22,21 +22,29 @@ export class TodoListComponent implements OnInit {
 
   handleCreatedTodo(todo: TodoItem) {
     this.todoListService.insert(todo).then(indexedTodo=>{
+      this.todoListService.showSnack('Note created !');
       this.todos.push(indexedTodo);
-    });
+      this.todos.sort((todo1, todo2) => todo2.rank > todo1.rank ? -1 : 1);
+      this.setRank();
+    }).catch(error=>this.todoListService.showSnack(error.status + " " + error.message));
   }
 
   handleDelete(todo:TodoItem){
     this.todoListService.remove(todo).then(()=>{
+      this.todoListService.showSnack('Note deleted !');
       this.todos.splice(this.todos.indexOf(todo),1);
-    });
+    }).catch(error=>this.todoListService.showSnack(error.status + " " + error.message));
   }
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
+    this.setRank();
+  }
+
+  private setRank(){
     this.todos.forEach((todo, index) =>{
       todo.rank = (index+1) * 10;
-      this.todoListService.update(todo);
+      this.todoListService.update(todo).catch(error=>this.todoListService.showSnack(error.status + " " + error.message));
     })
   }
 

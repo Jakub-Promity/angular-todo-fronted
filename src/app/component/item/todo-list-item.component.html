@@ -9,7 +9,7 @@
           <div class="col-10" (click)="toggleDone()">
             <div class="text-panel">
               {{todo.content}}
-              <!--<span *ngIf="!environment.production" style="font-size: 1rem;color: lightgray">id : {{todo.id}} rank : {{todo.rank}} isDone : {{todo.done}}</span>-->
+              <span *ngIf="!environment.production" style="font-size: 1rem;color: lightgray">id : {{todo.id}} rank : {{todo.rank}} isDone : {{todo.done}}</span>
             </div>
           </div>
           <div class="col-1 delete-button" (click)="delete()">
