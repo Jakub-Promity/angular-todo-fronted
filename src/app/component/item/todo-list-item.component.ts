@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TodoItem} from './todo-item';
-import {environment} from '../../../environments/environment';
 import {TodoListService} from '../../service/todo-list.service';
 
 @Component({
@@ -10,23 +9,13 @@ import {TodoListService} from '../../service/todo-list.service';
 })
 export class TodoListItemComponent implements OnInit {
 
-  environment = environment;
-
   @Input()
-  public todo:TodoItem;
+  public todo: TodoItem;
 
-  @Output()
-  public deleteEvent:EventEmitter<TodoItem>;
-
-  constructor(private todoService:TodoListService) {
-    this.deleteEvent = new EventEmitter();
+  constructor(private todoService: TodoListService) {
   }
 
   ngOnInit() {
   }
 
-  toggleDone() {
-    this.todo.done = !this.todo.done;
-    this.todoService.update(this.todo);
-  }
 }
